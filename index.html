@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linden Andrei Macarangcat | Cybersecurity Portfolio</title>
+    <title>Linden Andrei Macarangcat | Cybersecurity & Web Developer Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -166,6 +166,17 @@
             color: #0a0c10;
         }
 
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #00d9ff;
+            color: #00d9ff;
+        }
+
+        .btn-outline:hover {
+            background: #00d9ff;
+            color: #0a0c10;
+        }
+
         /* Sections */
         .section {
             padding: 80px 0;
@@ -216,10 +227,20 @@
             margin-bottom: 1rem;
         }
 
+        .graduation-badge {
+            display: inline-block;
+            background: #00d9ff20;
+            color: #00d9ff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 8px;
+        }
+
         /* Skills Grid */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
@@ -256,6 +277,38 @@
             position: absolute;
             left: 0;
             color: #00d9ff;
+        }
+
+        /* Endpoint Security Section */
+        .endpoint-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .endpoint-card {
+            background: #1a1f2a;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .endpoint-card:hover {
+            transform: translateY(-5px);
+            border: 1px solid #00d9ff;
+        }
+
+        .endpoint-card i {
+            font-size: 2.5rem;
+            color: #00d9ff;
+            margin-bottom: 1rem;
+        }
+
+        .endpoint-card h4 {
+            color: #fff;
+            margin-bottom: 0.5rem;
         }
 
         /* Certificates */
@@ -335,7 +388,7 @@
             font-size: 0.85rem;
         }
 
-        /* Tools */
+        /* Tools & Projects */
         .tools-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -356,60 +409,68 @@
             margin-bottom: 1rem;
         }
 
-        /* Journal & Work Experience */
-        .journal-content, .work-content {
-            background: #1a1f2a;
-            padding: 2rem;
-            border-radius: 16px;
-        }
-
-        .work-grid {
+        /* Projects Section */
+        .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.8rem;
-            margin-top: 1.5rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
         }
 
-        .work-card {
-            background: #0f1219;
-            padding: 1.5rem;
-            border-radius: 12px;
-            border-left: 3px solid #00d9ff;
+        .project-card {
+            background: #1a1f2a;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s;
         }
 
-        .work-card h3 {
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-header {
+            background: #00d9ff20;
+            padding: 1rem;
+            border-bottom: 1px solid #00d9ff;
+        }
+
+        .project-header h3 {
             color: #00d9ff;
-            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
         }
 
-        .work-card .work-link {
-            color: #8b9bb0;
-            word-break: break-all;
-            font-size: 0.85rem;
-            margin: 8px 0;
+        .project-body {
+            padding: 1.5rem;
         }
 
-        .work-card .work-link a {
+        .project-body p {
+            margin-bottom: 1rem;
+        }
+
+        .project-link {
+            display: inline-block;
             color: #00d9ff;
             text-decoration: none;
+            margin-top: 0.5rem;
         }
 
-        .journal-entries {
-            margin: 2rem 0;
+        .project-link i {
+            margin-left: 5px;
+            transition: transform 0.3s;
         }
 
-        .journal-entry {
-            background: #0f1219;
-            padding: 1.2rem;
-            border-radius: 12px;
-            margin-bottom: 1.2rem;
+        .project-link:hover i {
+            transform: translateX(5px);
         }
 
-        .entry-date {
-            color: #00d9ff;
-            font-size: 0.85rem;
-            margin-bottom: 0.5rem;
+        .role-badge {
+            background: #00d9ff;
+            color: #0a0c10;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
         }
 
         /* Contact */
@@ -550,7 +611,7 @@
         <div class="container">
             <div class="logo">
                 <span class="logo-text">Linden Macarangcat</span>
-                <span class="logo-subtext">Cybersecurity Professional</span>
+                <span class="logo-subtext">Cybersecurity Professional | Full-Stack Developer</span>
             </div>
             <input type="checkbox" id="menu-toggle">
             <label for="menu-toggle" class="hamburger">
@@ -562,8 +623,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#certificates">Certificates</a></li>
-                <li><a href="#tools">Tools</a></li>
-                <li><a href="#work">Work</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -574,8 +634,8 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>Linden Andrei Macarangcat</h1>
-                    <h2>Cybersecurity Professional & QA Specialist</h2>
-                    <p>BS in Computer Engineering | Actively contributing to real-world projects | Seeking entry-level Cybersecurity role</p>
+                    <h2>Cybersecurity Professional & Web Developer</h2>
+                    <p>BS Computer Engineering Graduate | Endpoint Security Specialist | Full-Stack Developer</p>
                     <a href="#contact" class="btn">Get In Touch</a>
                 </div>
                 <div class="hero-image">
@@ -590,15 +650,17 @@
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>I am a Computer Engineering graduate with a deep passion for cybersecurity and web quality assurance. Currently, I contribute to live projects by performing QA testing, vulnerability assessments, and assisting in website development. My hands-on experience includes working with platforms like sasolutions.ph, techpilot360.com, and klinikahub.com, where I help strengthen security postures and ensure robust functionality.</p>
-                    <p>I aim to merge my development insight with offensive/defensive security practices. Eager to join a security team where I can apply analytical skills, learn from experts, and protect digital assets from modern threats.</p>
+                    <p>I am a <strong>Computer Engineering graduate</strong> with a strong passion for cybersecurity and full-stack web development. I combine technical development skills with security expertise to build and protect digital assets. Currently, I lead development projects, create live websites from scratch, and conduct comprehensive QA testing to ensure robust security postures.</p>
+                    <p>With hands-on experience in endpoint security solutions including CrowdStrike, Bitdefender, SEQrite, and eScan, I bring a holistic approach to security — from development to deployment and ongoing protection. I am eager to contribute to security-focused teams where I can apply my development background and security knowledge to protect organizations from evolving cyber threats.</p>
+                    <p><strong>🎓 Graduated with a degree in Computer Engineering</strong></p>
                 </div>
                 <div class="education">
-                    <h3>Education & Credentials</h3>
-                    <p><strong>BS in Computer Engineering</strong> – Ongoing/Final Year</p>
-                    <p><strong>Google IT Support Professional</strong> – Certified</p>
-                    <p><strong>Google Cybersecurity Certificate</strong> – 7/8 courses completed</p>
-                    <p><small>Specializations: Assets & Threats, Network Security, Linux/SQL, Detection & Response</small></p>
+                    <h3>Credentials & Expertise</h3>
+                    <p><strong>🎓 BS in Computer Engineering</strong> <span class="graduation-badge">Graduated</span></p>
+                    <p><strong>🔐 Google IT Support Professional</strong> – Certified</p>
+                    <p><strong>🛡️ Google Cybersecurity Certificate</strong> – 7/8 courses completed</p>
+                    <p><strong>💻 Endpoint Security:</strong> CrowdStrike, Bitdefender, SEQrite, eScan</p>
+                    <p><strong>🌐 Full-Stack Development:</strong> React, Node.js, PHP, Python</p>
                 </div>
             </div>
         </div>
@@ -609,20 +671,22 @@
             <h2 class="section-title">Technical Skills</h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3>Security Technologies</h3>
+                    <h3>Endpoint Security</h3>
                     <ul>
-                        <li>SIEM: Splunk (log analysis, alerting)</li>
-                        <li>Suricata IDS/IPS basics</li>
-                        <li>VirusTotal, endpoint protection</li>
-                        <li>NIST CSF framework</li>
+                        <li>CrowdStrike Falcon (EDR, threat hunting)</li>
+                        <li>Bitdefender GravityZone</li>
+                        <li>SEQrite Endpoint Protection</li>
+                        <li>eScan Antivirus & Security Suite</li>
+                        <li>Endpoint detection & response</li>
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h3>Analysis & Monitoring</h3>
+                    <h3>Security Technologies</h3>
                     <ul>
-                        <li>Log analysis & incident identification</li>
-                        <li>Security event correlation</li>
-                        <li>Vulnerability assessment</li>
+                        <li>SIEM: Splunk (log analysis, alerting)</li>
+                        <li>Suricata IDS/IPS</li>
+                        <li>VirusTotal, threat intelligence</li>
+                        <li>NIST Cybersecurity Framework</li>
                     </ul>
                 </div>
                 <div class="skill-category">
@@ -630,17 +694,107 @@
                     <ul>
                         <li>Wireshark traffic analysis</li>
                         <li>TCP/IP & network protocols</li>
-                        <li>Firewall fundamentals</li>
+                        <li>Firewall configuration</li>
+                        <li>Network security monitoring</li>
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h3>Web & QA</h3>
+                    <h3>Development & QA</h3>
                     <ul>
+                        <li>Full-stack: HTML/CSS, JavaScript, React, Node.js</li>
+                        <li>Python scripting, SQL databases</li>
+                        <li>Linux & Windows administration</li>
                         <li>Manual/automated QA testing</li>
-                        <li>Cross-browser & functional testing</li>
-                        <li>Python scripting, SQL</li>
-                        <li>Linux/Windows environments</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section - Highlighting your development work -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Projects I've Built & Led</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>sasolutions.ph</h3>
+                    </div>
+                    <div class="project-body">
+                        <span class="role-badge">Lead Developer</span>
+                        <p>Full development and deployment of the main website. Integrated backend systems and ensured security best practices.</p>
+                        <a href="https://sasolutions.ph" target="_blank" class="project-link">Visit Site <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>goto.sasolutions.ph</h3>
+                    </div>
+                    <div class="project-body">
+                        <span class="role-badge">Lead Developer & Integrator</span>
+                        <p>Developed and integrated this subdomain into the main system. Created seamless user experience and implemented security measures.</p>
+                        <a href="https://goto.sasolutions.ph" target="_blank" class="project-link">Visit Site <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>techpilot360.com</h3>
+                    </div>
+                    <div class="project-body">
+                        <span class="role-badge">Creator & Developer</span>
+                        <p>Built from scratch and deployed live. Full-stack development including frontend, backend, and security hardening.</p>
+                        <a href="https://techpilot360.com" target="_blank" class="project-link">Visit Site <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>gsinternational.vercel.app</h3>
+                    </div>
+                    <div class="project-body">
+                        <span class="role-badge">Lead Developer</span>
+                        <p>Led the development of the contact page and integrated it with backend systems. Focused on security and user experience.</p>
+                        <a href="https://gsinternational.vercel.app/contact" target="_blank" class="project-link">Visit Contact Page <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>klinikahub.com</h3>
+                    </div>
+                    <div class="project-body">
+                        <span class="role-badge">QA Lead & Security Assistant</span>
+                        <p>Conducted comprehensive QA testing, vulnerability assessments, and collaborated with the development team to resolve security issues and improve functionality.</p>
+                        <a href="https://klinikahub.com" target="_blank" class="project-link">Visit Site <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Endpoint Security Section -->
+    <section id="endpoint" class="section dark-section">
+        <div class="container">
+            <h2 class="section-title">Endpoint Security Expertise</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Specialized knowledge in enterprise-grade endpoint protection solutions</p>
+            <div class="endpoint-grid">
+                <div class="endpoint-card">
+                    <i class="fas fa-shield-hawk"></i>
+                    <h4>CrowdStrike Falcon</h4>
+                    <p>EDR, threat hunting, and real-time endpoint protection</p>
+                </div>
+                <div class="endpoint-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Bitdefender</h4>
+                    <p>GravityZone enterprise security, advanced threat defense</p>
+                </div>
+                <div class="endpoint-card">
+                    <i class="fas fa-virus-slash"></i>
+                    <h4>SEQrite</h4>
+                    <p>Endpoint protection, malware prevention, and system hardening</p>
+                </div>
+                <div class="endpoint-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h4>eScan</h4>
+                    <p>Antivirus solutions, content filtering, and endpoint security</p>
                 </div>
             </div>
         </div>
@@ -687,74 +841,12 @@
 
     <section id="tools" class="section dark-section">
         <div class="container">
-            <h2 class="section-title">Security & QA Tools</h2>
+            <h2 class="section-title">Tools & Technologies</h2>
             <div class="tools-grid">
-                <div class="tool-card"><div class="tool-icon"><i class="fas fa-search"></i></div><h3>Wireshark</h3><p>Packet analysis, protocol inspection, and network troubleshooting.</p></div>
-                <div class="tool-card"><div class="tool-icon"><i class="fas fa-chart-bar"></i></div><h3>Splunk</h3><p>SIEM monitoring, log analysis, and security event investigation.</p></div>
-                <div class="tool-card"><div class="tool-icon"><i class="fas fa-shield-virus"></i></div><h3>Suricata</h3><p>IDS/IPS rule testing and network security monitoring.</p></div>
-                <div class="tool-card"><div class="tool-icon"><i class="fas fa-code-branch"></i></div><h3>QA Testing Suite</h3><p>Cross-browser testing, functional testing, bug tracking.</p></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Work Experience: including provided websites & QA -->
-    <section id="work" class="section">
-        <div class="container">
-            <h2 class="section-title">Live Projects & QA Contributions</h2>
-            <div class="work-content">
-                <p>I actively assist in building, testing, and securing web platforms. Below are real-world websites I've contributed to — performing QA tests, vulnerability checks, and front-end improvements.</p>
-                <div class="work-grid">
-                    <div class="work-card">
-                        <h3>sasolutions.ph</h3>
-                        <div class="work-link"><a href="https://sasolutions.ph" target="_blank">sasolutions.ph</a> → <a href="https://goto.sasolutions.ph/" target="_blank">goto.sasolutions.ph</a></div>
-                        <p>QA testing, functional validation, and security posture review. Assisted in identifying UI bugs and ensuring responsive behavior.</p>
-                    </div>
-                    <div class="work-card">
-                        <h3>techpilot360.com</h3>
-                        <div class="work-link"><a href="https://techpilot360.com" target="_blank">techpilot360.com</a></div>
-                        <p>Conducted cross-platform compatibility tests, form validation, and performance analysis. Provided feedback on security headers and input sanitization.</p>
-                    </div>
-                    <div class="work-card">
-                        <h3>gsinternational.vercel.app</h3>
-                        <div class="work-link"><a href="https://gsinternational.vercel.app/contact" target="_blank">gsinternational.vercel.app/contact</a></div>
-                        <p>Tested contact form functionality, endpoint security, and assisted with frontend enhancements to improve user experience.</p>
-                    </div>
-                    <div class="work-card">
-                        <h3>klinikahub.com</h3>
-                        <div class="work-link"><a href="https://klinikahub.com" target="_blank">klinikahub.com</a></div>
-                        <p>Full QA cycle — functional, regression, and usability testing. Helped identify security misconfigurations and collaborated with dev team to resolve issues.</p>
-                    </div>
-                </div>
-                <p><i class="fas fa-check-circle" style="color:#00d9ff;"></i> <strong>Role:</strong> QA Analyst & Security Assistant — responsible for manual testing, security gap analysis, and providing detailed reports to improve site resilience.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Incident Journal -->
-    <section id="journal" class="section dark-section">
-        <div class="container">
-            <h2 class="section-title">Incident Journal & Case Studies</h2>
-            <div class="journal-content">
-                <p>Selected security incidents and QA findings documented during my hands-on experience:</p>
-                <div class="journal-entries">
-                    <div class="journal-entry">
-                        <h3>Phishing Simulation Analysis</h3>
-                        <p class="entry-date">March 2025</p>
-                        <p>Simulated phishing campaign analysis using Splunk; identified compromised credentials and improved email filtering rules. Recommended MFA enforcement.</p>
-                    </div>
-                    <div class="journal-entry">
-                        <h3>klinikahub SQLi Vulnerability Test</h3>
-                        <p class="entry-date">February 2025</p>
-                        <p>Conducted manual SQL injection tests on search fields. Discovered parameterized query gaps; worked with team to patch and harden input validation.</p>
-                    </div>
-                    <div class="journal-entry">
-                        <h3>Wireshark Network Anomaly</h3>
-                        <p class="entry-date">January 2025</p>
-                        <p>Analyzed pcap files for unusual ARP traffic; identified potential spoofing attempt and documented mitigation steps using port security.</p>
-                    </div>
-                </div>
-                <a href="IJ.docx" class="btn" download><i class="fas fa-download"></i> Download Full Incident Journal (Word)</a>
-                <p style="margin-top: 1rem;"><a href="CV_Resume.pdf" class="btn" download><i class="fa-solid fa-file-pdf"></i> View Resume (PDF)</a></p>
+                <div class="tool-card"><div class="tool-icon"><i class="fas fa-search"></i></div><h3>Wireshark</h3><p>Network protocol analysis and security auditing.</p></div>
+                <div class="tool-card"><div class="tool-icon"><i class="fas fa-chart-bar"></i></div><h3>Splunk</h3><p>SIEM monitoring, log analysis, and threat detection.</p></div>
+                <div class="tool-card"><div class="tool-icon"><i class="fas fa-shield-virus"></i></div><h3>Suricata</h3><p>IDS/IPS network security monitoring.</p></div>
+                <div class="tool-card"><div class="tool-icon"><i class="fas fa-code"></i></div><h3>Full-Stack Dev</h3><p>React, Node.js, PHP, Python, SQL databases.</p></div>
             </div>
         </div>
     </section>
@@ -765,16 +857,17 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <h3>Let's Connect</h3>
-                    <p>Open to entry-level cybersecurity roles, freelance QA, or collaborative security projects.</p>
+                    <p>Open to cybersecurity roles, development opportunities, or collaborative security projects.</p>
                     <ul class="contact-details">
                         <li><i class="fas fa-envelope"></i> lindenmacarangcat@gmail.com</li>
                         <li><i class="fas fa-phone"></i> 09394277310</li>
-                        <li><i class="fab fa-linkedin"></i> LinkedIn: Linden Andrei</li>
+                        <li><i class="fas fa-graduation-cap"></i> BS Computer Engineering Graduate</li>
                     </ul>
                     <div class="social-links">
                         <a href="https://www.linkedin.com/in/linden-andrei/" target="_blank"><i class="fab fa-linkedin"></i></a>
                         <a href="https://github.com/dashboard" target="_blank"><i class="fab fa-github"></i></a>
                     </div>
+                    <p style="margin-top: 1.5rem;"><a href="CV_Resume.pdf" class="btn btn-outline" download><i class="fa-solid fa-file-pdf"></i> Download Resume (PDF)</a></p>
                 </div>
                 <form class="contact-form" id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">
                     <div class="form-group"><input type="text" name="name" placeholder="Your Name" required></div>
@@ -789,7 +882,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; <span id="year"></span> Linden Andrei Macarangcat. Cybersecurity & QA Portfolio. All rights reserved.</p>
+            <p>&copy; <span id="year"></span> Linden Andrei Macarangcat. Cybersecurity Professional & Full-Stack Developer. All rights reserved.</p>
         </div>
     </footer>
 
