@@ -3,12 +3,549 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linden Andrei Macarangcat | Cybersecurity Professional</title>
-    <link rel="stylesheet" href="portfolio.css">
+    <title>Linden Andrei Macarangcat | Cybersecurity Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background-color: #0a0c10;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        #navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 12, 16, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid #1f2a3a;
+            transition: all 0.3s;
+        }
+
+        #navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #00d9ff;
+            letter-spacing: 1px;
+        }
+
+        .logo-subtext {
+            font-size: 0.8rem;
+            color: #8b9bb0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00d9ff;
+        }
+
+        #menu-toggle, .hamburger {
+            display: none;
+        }
+
+        /* Hero */
+        #hero {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #0a0c10 0%, #11161f 100%);
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-text h2 {
+            font-size: 1.8rem;
+            color: #00d9ff;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #b0c4de;
+        }
+
+        .hero-image {
+            flex: 0.8;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #00d9ff;
+            box-shadow: 0 0 30px rgba(0, 217, 255, 0.2);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: #00d9ff;
+            color: #0a0c10;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #00a3c2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 217, 255, 0.3);
+        }
+
+        .btn-view {
+            background: transparent;
+            border: 1px solid #00d9ff;
+            color: #00d9ff;
+        }
+
+        .btn-view:hover {
+            background: #00d9ff;
+            color: #0a0c10;
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .dark-section {
+            background-color: #0f1219;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: #fff;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #00d9ff;
+            margin: 12px auto 0;
+        }
+
+        /* About */
+        .about-content {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 2;
+        }
+
+        .education {
+            flex: 1;
+            background: #1a1f2a;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #00d9ff;
+        }
+
+        .education h3 {
+            color: #00d9ff;
+            margin-bottom: 1rem;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: #1a1f2a;
+            padding: 1.8rem;
+            border-radius: 12px;
+            transition: transform 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            color: #00d9ff;
+            margin-bottom: 1.2rem;
+            border-left: 3px solid #00d9ff;
+            padding-left: 12px;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .skill-category li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #00d9ff;
+        }
+
+        /* Certificates */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .certificate-card {
+            background: #1a1f2a;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+        }
+
+        .certificate-image-container {
+            display: block;
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .certificate-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .certificate-card:hover .certificate-image {
+            transform: scale(1.05);
+        }
+
+        .certificate-info {
+            padding: 1.5rem;
+        }
+
+        .certificate-info h3 {
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .certificate-provider {
+            color: #00d9ff;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .certificate-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .certificate-skills span {
+            background: #0a0c10;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: #b0c4de;
+        }
+
+        .certificate-actions {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .certificate-actions .btn {
+            padding: 6px 16px;
+            font-size: 0.85rem;
+        }
+
+        /* Tools */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .tool-card {
+            background: #1a1f2a;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .tool-icon i {
+            font-size: 3rem;
+            color: #00d9ff;
+            margin-bottom: 1rem;
+        }
+
+        /* Journal & Work Experience */
+        .journal-content, .work-content {
+            background: #1a1f2a;
+            padding: 2rem;
+            border-radius: 16px;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .work-card {
+            background: #0f1219;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 3px solid #00d9ff;
+        }
+
+        .work-card h3 {
+            color: #00d9ff;
+            margin-bottom: 0.5rem;
+        }
+
+        .work-card .work-link {
+            color: #8b9bb0;
+            word-break: break-all;
+            font-size: 0.85rem;
+            margin: 8px 0;
+        }
+
+        .work-card .work-link a {
+            color: #00d9ff;
+            text-decoration: none;
+        }
+
+        .journal-entries {
+            margin: 2rem 0;
+        }
+
+        .journal-entry {
+            background: #0f1219;
+            padding: 1.2rem;
+            border-radius: 12px;
+            margin-bottom: 1.2rem;
+        }
+
+        .entry-date {
+            color: #00d9ff;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact */
+        .contact-content {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-details {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .contact-details li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .contact-details i {
+            width: 28px;
+            color: #00d9ff;
+            font-size: 1.2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: #e0e0e0;
+            font-size: 1.8rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #00d9ff;
+        }
+
+        .contact-form {
+            flex: 1;
+            background: #1a1f2a;
+            padding: 2rem;
+            border-radius: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: #0f1219;
+            border: 1px solid #2a3440;
+            border-radius: 8px;
+            color: #e0e0e0;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        footer {
+            background: #050608;
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid #1f2a3a;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                cursor: pointer;
+                gap: 5px;
+            }
+            .hamburger .line {
+                width: 28px;
+                height: 3px;
+                background: #00d9ff;
+                transition: 0.3s;
+            }
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                background: #0a0c10;
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                transition: 0.3s;
+                gap: 1.5rem;
+                border-bottom: 1px solid #1f2a3a;
+            }
+            #menu-toggle:checked ~ .nav-links {
+                left: 0;
+            }
+            #menu-toggle {
+                display: none;
+            }
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .profile-img {
+                width: 220px;
+                height: 220px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
     <nav id="navbar">
         <div class="container">
             <div class="logo">
@@ -26,49 +563,47 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#certificates">Certificates</a></li>
                 <li><a href="#tools">Tools</a></li>
+                <li><a href="#work">Work</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <header id="hero">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>Linden Andrei Macarangcat</h1>
-                    <h2>Cybersecurity Professional</h2>
-                    <p>BS in Computer Engineering | Seeking entry-level position in Cybersecurity</p>
+                    <h2>Cybersecurity Professional & QA Specialist</h2>
+                    <p>BS in Computer Engineering | Actively contributing to real-world projects | Seeking entry-level Cybersecurity role</p>
                     <a href="#contact" class="btn">Get In Touch</a>
                 </div>
                 <div class="hero-image">
-                    <img src="Picture.jpg" alt="Linden Andrei Macarangcat" class="profile-img">
+                    <img src="Picture.jpg" alt="Linden Andrei Macarangcat" class="profile-img" onerror="this.src='https://via.placeholder.com/280?text=Photo'">
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- About Section -->
     <section id="about" class="section">
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>I am a Computer Engineering graduating student with a strong interest in cybersecurity, actively seeking opportunities to gain hands-on experience and grow within the field. My goal is to join a security-focused team where I can apply my foundational knowledge, learn from experienced professionals, and contribute to protecting digital systems from evolving threats.</p>
-                    <p>With an eagerness to develop my skills and a commitment to continuous learning, I’m ready to take the first step in my cybersecurity career.</p>
+                    <p>I am a Computer Engineering graduate with a deep passion for cybersecurity and web quality assurance. Currently, I contribute to live projects by performing QA testing, vulnerability assessments, and assisting in website development. My hands-on experience includes working with platforms like sasolutions.ph, techpilot360.com, and klinikahub.com, where I help strengthen security postures and ensure robust functionality.</p>
+                    <p>I aim to merge my development insight with offensive/defensive security practices. Eager to join a security team where I can apply analytical skills, learn from experts, and protect digital assets from modern threats.</p>
                 </div>
                 <div class="education">
-                    <h3>Education</h3>
-                    <p><strong>BS in Computer Engineering</strong></p>
-					<p><strong>Google IT Support Professional Certificate</strong></p>
-					<small>Ongoing Course: </small>
-					<p><strong>Google Cybersecurity Professional</strong></p>
+                    <h3>Education & Credentials</h3>
+                    <p><strong>BS in Computer Engineering</strong> – Ongoing/Final Year</p>
+                    <p><strong>Google IT Support Professional</strong> – Certified</p>
+                    <p><strong>Google Cybersecurity Certificate</strong> – 7/8 courses completed</p>
+                    <p><small>Specializations: Assets & Threats, Network Security, Linux/SQL, Detection & Response</small></p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills" class="section dark-section">
         <div class="container">
             <h2 class="section-title">Technical Skills</h2>
@@ -76,277 +611,200 @@
                 <div class="skill-category">
                     <h3>Security Technologies</h3>
                     <ul>
-                        <li>SIEM tools: Splunk (log search, alert analysis)</li>
-						<li>SIEM tools: Basic familiarity with Suricata</li>
-                        <li>IDS/IPS</li>
-                        <li>Endpoint protection</li>
-                        <li>VirusTotal</li>
+                        <li>SIEM: Splunk (log analysis, alerting)</li>
+                        <li>Suricata IDS/IPS basics</li>
+                        <li>VirusTotal, endpoint protection</li>
+                        <li>NIST CSF framework</li>
                     </ul>
                 </div>
                 <div class="skill-category">
                     <h3>Analysis & Monitoring</h3>
                     <ul>
-                        <li>Log analysis</li>
-                        <li>Security event monitoring</li>
-                        <li>Incident identification</li>
+                        <li>Log analysis & incident identification</li>
+                        <li>Security event correlation</li>
+                        <li>Vulnerability assessment</li>
                     </ul>
                 </div>
                 <div class="skill-category">
                     <h3>Network Analysis</h3>
                     <ul>
-                        <li>Network traffic analysis (Wireshark)</li>
-                        <li>TCP/IP and networking protocols</li>
-                        <li>Network security fundamentals</li>
+                        <li>Wireshark traffic analysis</li>
+                        <li>TCP/IP & network protocols</li>
+                        <li>Firewall fundamentals</li>
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h3>Other Competencies</h3>
+                    <h3>Web & QA</h3>
                     <ul>
-                        <li>NIST Cybersecurity Framework</li>
-                        <li>Python scripting</li>
-                        <li>Windows & Linux systems</li>
-                        <li>SQL</li>
-                        <li>Incident analysis and remediation</li>
+                        <li>Manual/automated QA testing</li>
+                        <li>Cross-browser & functional testing</li>
+                        <li>Python scripting, SQL</li>
+                        <li>Linux/Windows environments</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-  <!-- Certificates Section -->
-<section id="certificates" class="section">
-    <div class="container">
-        <h2 class="section-title">Certifications</h2>
-        <div class="certificates-grid">
-            
-            <!-- Certificate 1 - Sample (Duplicate for each certificate) -->
-            <div class="certificate-card">
-                <a href="ATV.jpg" target="_blank" class="certificate-image-container">
-                    <img src="ATV.jpg" alt="Assets, Threats and Vulnerabilities Certificate" class="certificate-image">
-                </a>
-                <div class="certificate-info">
-                    <h3>Assets, Threats & Vulnerabilities</h3>
-                    <p class="certificate-provider">Google Cybersecurity Certificate</p>
-                    <div class="certificate-skills">
-                        <span>Risk Assessment</span>
-                        <span>Vulnerability Management</span>
-                        <span>Threat Analysis</span>
-                    </div>
-                    <div class="certificate-actions">
-                        <a href="ATV.jpg" target="_blank" class="btn btn-view">View Full</a>
-                        <a href="Assets_Threats_and_Vulnerabilities.pdf" class="btn" download>Download PDF</a>
+    <section id="certificates" class="section">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="certificates-grid">
+                <div class="certificate-card">
+                    <a href="ATV.jpg" target="_blank" class="certificate-image-container">
+                        <img src="ATV.jpg" alt="Assets, Threats and Vulnerabilities" class="certificate-image" onerror="this.src='https://via.placeholder.com/300x200?text=ATV'">
+                    </a>
+                    <div class="certificate-info">
+                        <h3>Assets, Threats & Vulnerabilities</h3>
+                        <p class="certificate-provider">Google Cybersecurity</p>
+                        <div class="certificate-skills"><span>Risk Assessment</span><span>Vulnerability Mgmt</span><span>Threat Analysis</span></div>
+                        <div class="certificate-actions"><a href="ATV.jpg" target="_blank" class="btn btn-view">View</a><a href="Assets_Threats_and_Vulnerabilities.pdf" class="btn" download>PDF</a></div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Certificate 2 - Duplicate and modify this block -->
-            <div class="certificate-card">
-                <a href="FC.jpg" target="_blank" class="certificate-image-container">
-                    <img src="FC.jpg" alt="Foundations of Cybersecurity Certificate" class="certificate-image">
-                </a>
-                <div class="certificate-info">
-                    <h3>Foundations of Cybersecurity</h3>
-                    <p class="certificate-provider">Google Cybersecurity Certificate</p>
-                    <div class="certificate-skills">
-                        <span>Security Fundamentals</span>
-                        <span>Threat Landscape</span>
-						<span>Security Domains</span>
-                    </div>
-                    <div class="certificate-actions">
-                        <a href="FC.jpg" target="_blank" class="btn btn-view">View Full</a>
-                        <a href="Foundations_of_Cybersecurity.pdf" class="btn" download>Download PDF</a>
-                    </div>
+                <div class="certificate-card">
+                    <a href="FC.jpg" target="_blank" class="certificate-image-container"><img src="FC.jpg" alt="Foundations" class="certificate-image" onerror="this.src='https://via.placeholder.com/300x200?text=FC'"></a>
+                    <div class="certificate-info"><h3>Foundations of Cybersecurity</h3><p class="certificate-provider">Google Cybersecurity</p><div class="certificate-skills"><span>Security Fundamentals</span><span>Threat Landscape</span><span>8 Security Domains</span></div><div class="certificate-actions"><a href="FC.jpg" target="_blank" class="btn btn-view">View</a><a href="Foundations_of_Cybersecurity.pdf" class="btn" download>PDF</a></div></div>
                 </div>
-            </div>
-            
-           <div class="certificate-card">
-                <a href="DR.jpg" target="_blank" class="certificate-image-container">
-                    <img src="DR.jpg" alt="Foundations of Cybersecurity Certificate" class="certificate-image">
-                </a>
-                <div class="certificate-info">
-                       <h3>Detection and Response</h3>
-                    <p class="certificate-provider">Google Cybersecurity Certificate</p>
-                    <div class="certificate-skills">
-                         <span>Incident Detection</span>
-                         <span>Response Procedures</span>
-                         <span>SIEM Basics</span>
-                    </div>
-                    <div class="certificate-actions">
-                        <a href="DR.jpg" target="_blank" class="btn btn-view">View Full</a>
-                        <a href="Foundations_of_Cybersecurity.pdf" class="btn" download>Download PDF</a>
-                    </div>
+                <div class="certificate-card">
+                    <a href="DR.jpg" target="_blank" class="certificate-image-container"><img src="DR.jpg" alt="Detection and Response" class="certificate-image" onerror="this.src='https://via.placeholder.com/300x200?text=DR'"></a>
+                    <div class="certificate-info"><h3>Detection and Response</h3><p class="certificate-provider">Google Cybersecurity</p><div class="certificate-skills"><span>Incident Detection</span><span>SIEM Basics</span><span>Response Procedures</span></div><div class="certificate-actions"><a href="DR.jpg" target="_blank" class="btn btn-view">View</a><a href="Detection_Response.pdf" class="btn" download>PDF</a></div></div>
                 </div>
-            </div>
-            <div class="certificate-card">
-                <a href="LS.jpg" target="_blank" class="certificate-image-container">
-                    <img src="LS.jpg" alt="Foundations of Cybersecurity Certificate" class="certificate-image">
-                </a>
-                <div class="certificate-info">
-                    <h3>Linux and SQL</h3>
-                    <p class="certificate-provider">Google Cybersecurity Certificate</p>
-                    <div class="certificate-skills">
-                        <span>Linux Administration</span>
-                        <span>Database Security</span>
-                        <span>Command Line</span>
-                    </div>
-                    <div class="certificate-actions">
-                        <a href="LS.jpg" target="_blank" class="btn btn-view">View Full</a>
-                        <a href="Foundations_of_Cybersecurity.pdf" class="btn" download>Download PDF</a>
-                    </div>
+                <div class="certificate-card">
+                    <a href="LS.jpg" target="_blank" class="certificate-image-container"><img src="LS.jpg" alt="Linux and SQL" class="certificate-image" onerror="this.src='https://via.placeholder.com/300x200?text=LS'"></a>
+                    <div class="certificate-info"><h3>Linux and SQL</h3><p class="certificate-provider">Google Cybersecurity</p><div class="certificate-skills"><span>Linux Admin</span><span>Database Security</span><span>Command Line</span></div><div class="certificate-actions"><a href="LS.jpg" target="_blank" class="btn btn-view">View</a><a href="Linux_SQL.pdf" class="btn" download>PDF</a></div></div>
                 </div>
-				
-            </div>
-			<div class="certificate-card">
-                <a href="NNS.jpg" target="_blank" class="certificate-image-container">
-                    <img src="NNS.jpg" alt="Foundations of Cybersecurity Certificate" class="certificate-image">
-                </a>
-                <div class="certificate-info">
-                    <h3>Networks and Network Security</h3>
-                    <p class="certificate-provider">Google Cybersecurity Certificate</p>
-                    <div class="certificate-skills">
-                        <span>Network Protocols</span>
-                        <span>Security Architecture</span>
-                        <span>Firewalls</span>
-                    </div>
-                    <div class="certificate-actions">
-                        <a href="NNS.jpg" target="_blank" class="btn btn-view">View Full</a>
-                        <a href="Foundations_of_Cybersecurity.pdf" class="btn" download>Download PDF</a>
-                    </div>
+                <div class="certificate-card">
+                    <a href="NNS.jpg" target="_blank" class="certificate-image-container"><img src="NNS.jpg" alt="Networks and Network Security" class="certificate-image" onerror="this.src='https://via.placeholder.com/300x200?text=NNS'"></a>
+                    <div class="certificate-info"><h3>Networks & Network Security</h3><p class="certificate-provider">Google Cybersecurity</p><div class="certificate-skills"><span>Network Protocols</span><span>Firewalls</span><span>Security Architecture</span></div><div class="certificate-actions"><a href="NNS.jpg" target="_blank" class="btn btn-view">View</a><a href="Network_Security.pdf" class="btn" download>PDF</a></div></div>
                 </div>
-            </div>
-			<!-- Certificate 1 - Sample (Duplicate for each certificate) -->
-            <div class="certificate-card">
-                <a href="MSR.jpg" target="_blank" class="certificate-image-container">
-                    <img src="MSR.jpg" alt="Assets, Threats and Vulnerabilities Certificate" class="certificate-image">
-                </a>
-                <div class="certificate-info">
-                    <h3>Manage Security Risk</h3>
-                    <p class="certificate-provider">Google Cybersecurity Certificate</p>
-                    <div class="certificate-skills">
-                        <span>Risk Management</span>
-                        <span>Security Policies</span>
-                        <span>Compliance</span>
-                    </div>
-                    <div class="certificate-actions">
-                        <a href="MSR.jpg" target="_blank" class="btn btn-view">View Full</a>
-                        <a href="Assets_Threats_and_Vulnerabilities.pdf" class="btn" download>Download PDF</a>
-                    </div>
+                <div class="certificate-card">
+                    <a href="MSR.jpg" target="_blank" class="certificate-image-container"><img src="MSR.jpg" alt="Manage Security Risk" class="certificate-image" onerror="this.src='https://via.placeholder.com/300x200?text=MSR'"></a>
+                    <div class="certificate-info"><h3>Manage Security Risk</h3><p class="certificate-provider">Google Cybersecurity</p><div class="certificate-skills"><span>Risk Management</span><span>Compliance</span><span>Security Policies</span></div><div class="certificate-actions"><a href="MSR.jpg" target="_blank" class="btn btn-view">View</a><a href="Manage_Security_Risk.pdf" class="btn" download>PDF</a></div></div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-    <!-- Tools Section -->
     <section id="tools" class="section dark-section">
         <div class="container">
-            <h2 class="section-title">Tools Experience</h2>
+            <h2 class="section-title">Security & QA Tools</h2>
             <div class="tools-grid">
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3>Wireshark</h3>
-                    <p>Network protocol analyzer for troubleshooting, analysis, and security auditing.</p>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-chart-bar"></i>
-                    </div>
-                    <h3>Splunk</h3>
-                    <p>SIEM solution for searching, monitoring, and analyzing machine-generated data.</p>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-shield-virus"></i>
-                    </div>
-                    <h3>Suricata</h3>
-                    <p>High-performance Network IDS, IPS and Network Security Monitoring engine.</p>
-                </div>
+                <div class="tool-card"><div class="tool-icon"><i class="fas fa-search"></i></div><h3>Wireshark</h3><p>Packet analysis, protocol inspection, and network troubleshooting.</p></div>
+                <div class="tool-card"><div class="tool-icon"><i class="fas fa-chart-bar"></i></div><h3>Splunk</h3><p>SIEM monitoring, log analysis, and security event investigation.</p></div>
+                <div class="tool-card"><div class="tool-icon"><i class="fas fa-shield-virus"></i></div><h3>Suricata</h3><p>IDS/IPS rule testing and network security monitoring.</p></div>
+                <div class="tool-card"><div class="tool-icon"><i class="fas fa-code-branch"></i></div><h3>QA Testing Suite</h3><p>Cross-browser testing, functional testing, bug tracking.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- Incident Journal Section -->
-    <section id="journal" class="section">
+    <!-- Work Experience: including provided websites & QA -->
+    <section id="work" class="section">
         <div class="container">
-            <h2 class="section-title">Incident Journal</h2>
-            <div class="journal-content">
-                <p>Below you can find documentation of security incidents I've analyzed and worked on:</p>
-                
-                <div class="journal-entries">
-                    <!-- Example entry - replace with your actual content -->
-                    <div class="journal-entry">
-                        <h3>Sample Incident Report</h3>
-                        <p class="entry-date">May 12, 2025</p>
-                        <p>Description of the incident, analysis performed, tools used, and resolution.</p>
-                        <p>Lessons learned and how it improved my security understanding.</p>
+            <h2 class="section-title">Live Projects & QA Contributions</h2>
+            <div class="work-content">
+                <p>I actively assist in building, testing, and securing web platforms. Below are real-world websites I've contributed to — performing QA tests, vulnerability checks, and front-end improvements.</p>
+                <div class="work-grid">
+                    <div class="work-card">
+                        <h3>sasolutions.ph</h3>
+                        <div class="work-link"><a href="https://sasolutions.ph" target="_blank">sasolutions.ph</a> → <a href="https://goto.sasolutions.ph/" target="_blank">goto.sasolutions.ph</a></div>
+                        <p>QA testing, functional validation, and security posture review. Assisted in identifying UI bugs and ensuring responsive behavior.</p>
                     </div>
-                    
-                    <!-- Add more entries as needed -->
+                    <div class="work-card">
+                        <h3>techpilot360.com</h3>
+                        <div class="work-link"><a href="https://techpilot360.com" target="_blank">techpilot360.com</a></div>
+                        <p>Conducted cross-platform compatibility tests, form validation, and performance analysis. Provided feedback on security headers and input sanitization.</p>
+                    </div>
+                    <div class="work-card">
+                        <h3>gsinternational.vercel.app</h3>
+                        <div class="work-link"><a href="https://gsinternational.vercel.app/contact" target="_blank">gsinternational.vercel.app/contact</a></div>
+                        <p>Tested contact form functionality, endpoint security, and assisted with frontend enhancements to improve user experience.</p>
+                    </div>
+                    <div class="work-card">
+                        <h3>klinikahub.com</h3>
+                        <div class="work-link"><a href="https://klinikahub.com" target="_blank">klinikahub.com</a></div>
+                        <p>Full QA cycle — functional, regression, and usability testing. Helped identify security misconfigurations and collaborated with dev team to resolve issues.</p>
+                    </div>
                 </div>
-                
-                <!-- Link to download your Word file -->
-                <a href="IJ.docx" class="btn" download>
-                    <i class="fas fa-download"></i> Download Full Incident Journal (Word)
-                </a>
-		    <p>
-		  	<a href="CV_Resume.pdf" class="btn" download>
-			     <i class="fa-solid fa-file-pdf"></i> View Resume (PDF)
-		        </a>
-		</p>
+                <p><i class="fas fa-check-circle" style="color:#00d9ff;"></i> <strong>Role:</strong> QA Analyst & Security Assistant — responsible for manual testing, security gap analysis, and providing detailed reports to improve site resilience.</p>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section dark-section">
+    <!-- Incident Journal -->
+    <section id="journal" class="section dark-section">
+        <div class="container">
+            <h2 class="section-title">Incident Journal & Case Studies</h2>
+            <div class="journal-content">
+                <p>Selected security incidents and QA findings documented during my hands-on experience:</p>
+                <div class="journal-entries">
+                    <div class="journal-entry">
+                        <h3>Phishing Simulation Analysis</h3>
+                        <p class="entry-date">March 2025</p>
+                        <p>Simulated phishing campaign analysis using Splunk; identified compromised credentials and improved email filtering rules. Recommended MFA enforcement.</p>
+                    </div>
+                    <div class="journal-entry">
+                        <h3>klinikahub SQLi Vulnerability Test</h3>
+                        <p class="entry-date">February 2025</p>
+                        <p>Conducted manual SQL injection tests on search fields. Discovered parameterized query gaps; worked with team to patch and harden input validation.</p>
+                    </div>
+                    <div class="journal-entry">
+                        <h3>Wireshark Network Anomaly</h3>
+                        <p class="entry-date">January 2025</p>
+                        <p>Analyzed pcap files for unusual ARP traffic; identified potential spoofing attempt and documented mitigation steps using port security.</p>
+                    </div>
+                </div>
+                <a href="IJ.docx" class="btn" download><i class="fas fa-download"></i> Download Full Incident Journal (Word)</a>
+                <p style="margin-top: 1rem;"><a href="CV_Resume.pdf" class="btn" download><i class="fa-solid fa-file-pdf"></i> View Resume (PDF)</a></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
         <div class="container">
             <h2 class="section-title">Contact Me</h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Get In Touch</h3>
-                    <p>I'm currently seeking entry-level opportunities in cybersecurity. Feel free to reach out!</p>
+                    <h3>Let's Connect</h3>
+                    <p>Open to entry-level cybersecurity roles, freelance QA, or collaborative security projects.</p>
                     <ul class="contact-details">
                         <li><i class="fas fa-envelope"></i> lindenmacarangcat@gmail.com</li>
                         <li><i class="fas fa-phone"></i> 09394277310</li>
-						<p>Visit My LinkedIn to view more of my Certificates</p>
+                        <li><i class="fab fa-linkedin"></i> LinkedIn: Linden Andrei</li>
                     </ul>
                     <div class="social-links">
-                        <!-- Add your social media links if desired -->
-                        <a href="https://www.linkedin.com/in/linden-andrei/"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/dashboard"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/linden-andrei/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/dashboard" target="_blank"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 <form class="contact-form" id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-                    </div>
+                    <div class="form-group"><input type="text" name="name" placeholder="Your Name" required></div>
+                    <div class="form-group"><input type="email" name="email" placeholder="Your Email" required></div>
+                    <div class="form-group"><input type="text" name="subject" placeholder="Subject" required></div>
+                    <div class="form-group"><textarea name="message" placeholder="Your Message" required></textarea></div>
                     <button type="submit" class="btn">Send Message</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; <span id="year"></span> Linden Andrei Macarangcat. All rights reserved.</p>
+            <p>&copy; <span id="year"></span> Linden Andrei Macarangcat. Cybersecurity & QA Portfolio. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Simple script just for current year in footer -->
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
     </script>
 </body>
 </html>
